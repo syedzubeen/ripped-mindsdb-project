@@ -27,8 +27,8 @@ Follow these steps to get Ripped up and running on your local machine:
      Linux: source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 4. **Install Dependencies:**
-   ```sh
-   pip install requests, asyncio
+      ```sh
+      pip install requests, asyncio
       
 6. **Run the Application:**
    ```sh
