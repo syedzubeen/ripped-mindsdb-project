@@ -5,18 +5,30 @@ import requests, asyncio
 from app import app
 
 
-async def fetch_recipe(username, password):
+async def fetch_recipe(username, password, selected_vegan, selected_gluten_free, selected_lactose_free):
     session = requests.Session()
     session.post('https://cloud.mindsdb.com/cloud/login', json={
         'email': username,
         'password': password
     })
+   
+    custom_query = " "
+    if selected_gluten_free is not False:
+        custom_query += "gluten free " 
+    if selected_lactose_free is not False:
+        custom_query += "lactose free "
+    if selected_vegan is not False:
+        custom_query += "vegan "
 
-    query = "SELECT answer FROM mindsdb.recipemaster6 WHERE question = 'Start your response with the sentence Hola Amigo !  Do not add salutations or anything else to your response. Behave like a chef who knows a ton of different recipes. You are responding to an audience that is looking to loose weight. Now suggest me just one new recipe each time I ask you, in the form of bullet points, that is healthy and easy to cook?';"
+    
+    if custom_query == " ":
+        query = "SELECT answer FROM mindsdb.recipemaster6 WHERE question = 'Start your response with the sentence Hola Amigo !  Do not add salutations or anything else to your response. Behave like a chef who knows a ton of different recipes. You are responding to an audience that is looking to loose weight. Now suggest me just one new recipe each time I ask you, in the form of bullet points, that is healthy and easy to cook?';"
+    else:
+         query = "SELECT answer FROM mindsdb.recipemaster6 WHERE question = 'Start your response with the sentence Hola Amigo !  Do not add salutations or anything else to your response. Behave like a chef who knows a ton of different recipes. You are responding to an audience that is looking to loose weight. Now suggest me just one new " + custom_query +  " recipe each time I ask you, in the form of bullet points, that is healthy and easy to cook?';"
     resp = session.post('https://cloud.mindsdb.com/api/sql/query', json={'query': query})
     
     json_response = resp.json()
-
+    
     # Assuming there's only one element in the inner list
     data_value = json_response['data'][0][0]  
     
@@ -97,7 +109,10 @@ def index():
         calories_response = None
 
         if 'recipe_button' in request.form:
-            recipe_response = loop.run_until_complete(fetch_recipe(username, password))
+            selected_vegan = 'vegan' in request.form
+            selected_gluten_free = 'gluten_free' in request.form
+            selected_lactose_free = 'lactose_free' in request.form
+            recipe_response = loop.run_until_complete(fetch_recipe(username, password, selected_vegan, selected_gluten_free, selected_lactose_free))
         elif 'calories_button' in request.form:
             calories_response = loop.run_until_complete(fetch_calories(username, password))
 

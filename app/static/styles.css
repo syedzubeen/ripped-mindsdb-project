@@ -241,7 +241,7 @@
   .calories-section {
     text-align: center;
     padding: 60px;
-    height: 350px; /* Set the desired height */
+    height: 365px; /* Set the desired height */
     background-color: #000000;
   }
   
@@ -299,5 +299,19 @@
           /* Add any additional styling you want, such as background-color, color, etc. */
   }
   .white-text {
-    color: white; /* Set the color to white */
+    color: white;
+    font-weight: 100; /* Set the color to white */
   } 
+
+  .checkbox-group {
+    display: flex; /* Display the checkboxes in a flex container */
+    justify-content: center; /* Center align the checkboxes horizontally */
+    margin-top: 20px; /* Adjust margin as needed */
+  }
+  
+  .checkbox-group label {
+    margin-right: 40px; /* Add some spacing between checkboxes */
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 450; /* Change the font size for checkboxes and labels */
+  }

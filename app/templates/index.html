@@ -42,13 +42,19 @@
 
   <div class="api-section">
     <div class="text white-text">
-      <h1 class="centered ">Make my Healthy Recipe</h1>
-      Nutritous recipes in an instant. Click generate to get yours.
+      <h1 class="centered">Make my Healthy Recipe</h1>
+      Nutritious recipes in an instant. Click generate to get yours!
+      <br><br>
       <form action="/" method="post" class="centered">
-          <button type="submit" class="btn btn-primary btn-lg btn-block  custom-button-width" name="recipe_button">Generate</button>
+        <div class="checkbox-group">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <label><input type="checkbox" name="vegan">Vegan</label>
+          <label><input type="checkbox" name="gluten_free">Gluten-Free</label>
+          <label><input type="checkbox" name="lactose_free">Lactose-Free</label>
+        </div>
+        <br><br><button type="submit" class="btn btn-primary btn-lg btn-block custom-button-width" name="recipe_button">Generate</button>
       </form>
     </div>
-
+  
     <div class="response">
       {% if recipe_response is not none %}
       <pre>{{ recipe_response }}</pre>
@@ -56,7 +62,7 @@
     </div>
   </div>
   
-
+  
 
   
   
