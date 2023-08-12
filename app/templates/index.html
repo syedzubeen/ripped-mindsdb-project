@@ -1,310 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
     
-<style>
-.section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 60px 200px;   
-  background-color: #98c96e;
-}
 
-.text {
-  flex: 1;
-  padding-right: 20px;
-  border-right: 1px solid #ccc; /* Add the vertical line */
-  margin-right: 20px; /* Add some spacing */
-}
-
-.text p {
-  font-size: 34px;
-  line-height: 1;
-  color: #333;
-  text-align: justify;
-}
-
-.image {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end; /* Align the image to the right */
-}
-
-.image img {
-  max-width: 60%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.triple-section {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 100px;
-  background-color: #f7f7f7;
-}
-
-.section-container {
-  flex: 1;
-  text-align: center;
-  max-width: 310px;
-}
-
-.section-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
-}
-
-.section-container p {
-  font-size: 16px;
-  line-height: 1.4;
-  color: #333;
-  margin-top: 60px;
-}
-
-.api-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px;
-  background-color: #000000;
-}
-
-.text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-right: 20px;
-}
-
-.text h1 {
-  font-size: 55px;
-  margin-bottom: 10px;
-}
-.bmi-header {
-        font-size: 55px; /* Adjust the font size as needed */
-    }
-
-.text form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.text button {
-  padding: 10px 20px;
-  font-size: 16px;
-}
-
-.response {
-  flex: 1;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  height: 400px;
-  overflow: auto;
-}   
-
-.response p {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.response pre {
-  font-size: 14px;
-  white-space: pre-wrap;
-}
-.custom-button-width {
-  width: 370px; /* Adjust the width as needed */
-}
-.white-text {
-  color: white; /* Set the font color to white */
-}
-.bmi-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 40px;
-  background-color: rgb(215, 96, 96);
-  color: black;
-  height: 480px; /* Adjust the height as needed */
-
-}
-
-.bmi-content {
-  text-align: center;
-}
-
-.bmi-content h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.form-group {
-  margin-bottom: 10px;
-}
-
-label {
-  display: block;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-select,
-input {
-  width: 100%;
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #333;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #555;
-}
-.custom-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 40px;
-  background-color: #f7f7f7;
-  height: 400px; /* Adjust this value */
-}
-
-.text-area {
-  flex: 1;
-  padding-right: 20px;
-}
-
-.text-area textarea {
-  width: 70%;
-  padding: 50px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  resize: vertical;
-}
-
-.transform-text {
-  flex: 1;
-  text-align: right;
-}
-
-.transform-text h1 {
-  font-size: 55px;
-  margin-bottom: 10px;
-}
-
-.transform-text p {
-  font-size: 16px;
-  color: #666;
-}
-.ai-assistant {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  background-color: #5f5c9b;
-  height: 400px; /* Adjust this value */
-}
-
-.text-container {
-  text-align: center;
-}
-
-.main-text {
-  font-size: 55px;
-  line-height: 1.2;
-  margin-bottom: 10px;
-}
-
-.sub-text {
-  font-size: 22px;
-  color: #999;
-}
-
-.calories-section {
-  text-align: center;
-  padding: 60px;
-  height: 350px; /* Set the desired height */
-  background-color: #c4ce07;
-}
-
-.calories-text {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.calories-text h2 {
-  font-size: 44px;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.calories-text p {
-  font-size: 22px;
-  color: #666;
-  margin-top: 0;
-}
-
-.food-item {
-  display: inline-block;
-  margin: 0 5px;
-}
-
-.food-item input {
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 175px;
-  height: 30px;
-}
-
-.submit-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-.submit-button:hover {
-  background-color: #0056b3;
-}
-
-.italic-placeholder::placeholder {
-  font-style: italic;
-  text-align: center;
-}
-.calories-text button[type="submit"] {
-        height: 45px; /* Adjust the height value as needed */
-        width: 180px; /* Adjust the width value as needed */
-        /* Add any additional styling you want, such as background-color, color, etc. */
-    }
-
-
-</style>  
+<head>
+  <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
 
 <div class="section">
     <div class="text">
@@ -317,41 +17,7 @@ button:hover {
   
 
 
-  <div class="bmi-section">
-    <div class="bmi-content">
-        <h1 class="bmi-header">Calculate your BMI Index</h1>
-        Analyse where you lie on the charts and get AI powered predictions on how soon you can achieve your desired results.<br>
-        <br><br><br><form action="/" method="post">
-        <div class="form-row">
-            <div class="form-group col-md-3">
-                <select class="form-control" id="sex" name="sex">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-            </div>
-            <div class="form-group col-md-3">
-                <div class="input-group">
-                    <input type="number" class="form-control" id="weight" name="weight" required>
-                    <div class="input-group-append">
-                        <span class="input-group-text">kg</span>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group col-md-3">
-                <div class="input-group">
-                    <input type="number" class="form-control" id="height" name="height" required>
-                    <div class="input-group-append">
-                        <span class="input-group-text">cm</span>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group col-md-3">
-                <button type="submit" class="btn btn-primary">Calculate</button>
-            </div>
-        </div>
-    </form>    
-    </div>
-  </div>
+
   
 
   <div class="triple-section">
@@ -379,7 +45,7 @@ button:hover {
       <h1 class="centered ">Make my Healthy Recipe</h1>
       Nutritous recipes in an instant. Click generate to get yours.
       <form action="/" method="post" class="centered">
-          <button type="submit" class="btn btn-primary btn-lg btn-block  custom-button-width">Generate</button>
+          <button type="submit" class="btn btn-primary btn-lg btn-block  custom-button-width" name="recipe_button">Generate</button>
       </form>
     </div>
 
@@ -440,19 +106,88 @@ button:hover {
             </span>
             have?
           </p><br>
-          <button type="submit">Find out</button>
+          <button type="submit" name="calories_button">Find out</button>
         </div>
     
     </form>
-    
     {% if calories_response is not none %}
     <div class="result-section">
-      <p>
+      <p class="white-text">
         <br><strong>{{ calories_response }}</strong>
       </p>
     </div>
     {% endif %}
   </div> 	
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="bmi-section">
+    <div class="bmi-content">
+        <h1 class="bmi-header">Calculate your BMI Index</h1>
+        Analyse where you lie on the charts and get AI powered predictions on how soon you can achieve your desired results.<br>
+        <br><br><br><form action="/" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <select class="form-control" id="sex" name="sex">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <div class="input-group">
+                    <input type="number" class="form-control" id="weight" name="weight" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text">kg</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <div class="input-group">
+                    <input type="number" class="form-control" id="height" name="height" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text">cm</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+            </div>
+        </div>
+    </form>    
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 {% endblock %}

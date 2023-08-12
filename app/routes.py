@@ -84,6 +84,7 @@ def index():
 
     if request.method == 'POST':
 
+
         username, password = read_env_vars()
 
         if username is None or password is None:
@@ -92,11 +93,13 @@ def index():
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
 
-        # Fetch recipe asynchronously
-        recipe_response = loop.run_until_complete(fetch_recipe(username, password))
+        recipe_response = None
+        calories_response = None
 
-        # Fetch calories asynchronously
-        calories_response = loop.run_until_complete(fetch_calories(username, password))
+        if 'recipe_button' in request.form:
+            recipe_response = loop.run_until_complete(fetch_recipe(username, password))
+        elif 'calories_button' in request.form:
+            calories_response = loop.run_until_complete(fetch_calories(username, password))
 
         loop.close()
 
