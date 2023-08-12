@@ -20,3 +20,20 @@ Follow these steps to get Ripped up and running on your local machine:
    ```sh
    git clone https://github.com/syedzubeen/ripped-mindsdb-project.git
    cd app
+   
+2. **Create a Virtual Environment:**
+     ```sh
+     python -m venv venv
+     Linux: source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+4. **Install Dependencies:**
+   ```sh
+   pip install requests, asyncio
+      
+6. **Run the Application:**
+   ```sh
+   flask run
+   
+7. **Access the Application:**
+     ```sh
+     Open your web browser and navigate to http://localhost:5000 to access Ripped.
