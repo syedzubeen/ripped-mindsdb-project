@@ -1,210 +1,162 @@
 {% extends "base.html" %}
 {% block content %}
-    
+
 
 <head>
   <link rel="stylesheet" type="text/css" href="/static/styles.css">
 </head>
 
 <div class="section">
-    <div class="text">
-      <p>Say goodbye to lethargic lives and embrace a healthy lifestyle packed with excitement and energy.<br> Join Ripped now!</p>
-    </div>
-    <div class="image">
-      <img src="{{ url_for('static', filename='muscleguyhome.png') }}" alt="Image description">
-    </div>
+  <div class="text">
+    <p>Say goodbye to lethargic lives and embrace a healthy lifestyle packed with excitement and energy.<br> Join Ripped
+      now!</p>
   </div>
-  
-
-
-
-  
-
-  <div class="triple-section">
-    <div class="section-container">
-        <img src="{{ url_for('static', filename='salad.gif') }}" alt="Image 1" width="90" height="90">
-        <p>Elevate your wellness journey with personalized, delectable recipes tailored to your preferences and dietary needs. Discover the art of wholesome cooking and indulge in a symphony of taste and health, one custom dish at a time.</p>
-    </div>
-    <div class="section-container">
-        <img src="{{ url_for('static', filename='walk.gif') }}" alt="Image 1" width="90" height="90">
-      <p> Experience personalized workout plans tailored to your goals and preferences. Achieve results faster, stay motivated, and embrace a healthier, fitter you. Your dream physique is just a click away.</p>
-    </div>
-    <div class="section-container">
-        <img src="{{ url_for('static', filename='chat.gif') }}" alt="Image 1" width="90" height="90">
-      <p>Talk to our AI Health Coaches to get tailored fitness routines to nutritional guidance, enjoy insightful conversations and expert advice, empowering you on your journey to optimal health. Your 24/7 virtual partner for a vibrant life.</p>
-    </div>
+  <div class="image">
+    <img src="{{ url_for('static', filename='muscleguyhome.png') }}" alt="Image description">
   </div>
+</div>
 
-  
- 
-
-
-
-  <div class="api-section">
-    <div class="text white-text">
-      <h1 class="centered">Make my Healthy Recipe</h1>
-      Nutritious recipes in an instant. Click generate to get yours!
-      <br><br>
-      <form action="/" method="post" class="centered">
-        <div class="checkbox-group">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <label><input type="checkbox" name="vegan">Vegan</label>
-          <label><input type="checkbox" name="gluten_free">Gluten-Free</label>
-          <label><input type="checkbox" name="lactose_free">Lactose-Free</label>
-        </div>
-        <br><br><button type="submit" class="btn btn-primary btn-lg btn-block custom-button-width" name="recipe_button">Generate</button>
-      </form>
-    </div>
-  
-    <div class="response">
-      {% if recipe_response is not none %}
-      <pre>{{ recipe_response }}</pre>
-      {% endif %}
-    </div>
+<!-- Section: Feature Descriptions -->
+<div class="triple-section">
+  <div class="section-container">
+    <img src="{{ url_for('static', filename='salad.gif') }}" alt="Image 1" width="90" height="90">
+    <p>Elevate your wellness journey with personalized, delectable recipes tailored to your preferences and dietary
+      needs. Discover the art of wholesome cooking and indulge in a symphony of taste and health, one custom dish at a
+      time.</p>
   </div>
-  
-  
+  <div class="section-container">
+    <img src="{{ url_for('static', filename='walk.gif') }}" alt="Image 1" width="90" height="90">
+    <p> Experience personalized workout plans tailored to your goals and preferences. Achieve results faster, stay
+      motivated, and embrace a healthier, fitter you. Your dream physique is just a click away.</p>
+  </div>
+  <div class="section-container">
+    <img src="{{ url_for('static', filename='chat.gif') }}" alt="Image 1" width="90" height="90">
+    <p>Talk to our AI Health Coaches to get tailored fitness routines to nutritional guidance, enjoy insightful
+      conversations and expert advice, empowering you on your journey to optimal health. Your 24/7 virtual partner for a
+      vibrant life.</p>
+  </div>
+</div>
 
-  
-  
-
-  
-
-  <div class="custom-section">
-    <form method="post" action="/"> 
-      <div class="transform-text">
-        <h1>Transform Now</h1>
-        <p>Customised fitness plans based on your timelines.</p>
-        <div class="challenge-buttons">
-          <button type="submit" class="rounded-button" name="45_day_challenge">45 Day Challenge</button>
-          <button type="submit" class="rounded-button" name="90_day_challenge">90 Day Challenge</button>
-          <button type="submit" class="rounded-button" name="180_day_challenge">180 Day Challenge</button>
-        </div>
+<!-- Section: Healthy Recipe -->
+<div class="api-section">
+  <div class="text white-text">
+    <h1 class="centered">Make my Healthy Recipe</h1>
+    Nutritious recipes in an instant. Click generate to get yours!
+    <br><br>
+    <form action="/" method="post" class="centered">
+      <div class="checkbox-group">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label><input type="checkbox" name="vegan">Vegan</label>
+        <label><input type="checkbox" name="gluten_free">Gluten-Free</label>
+        <label><input type="checkbox" name="lactose_free">Lactose-Free</label>
       </div>
+      <br><br><button type="submit" class="btn btn-primary btn-lg btn-block custom-button-width"
+        name="recipe_button">Generate</button>
     </form>
-    <div class="result">
-      {% if transformation_response is not none %}
-      <pre class="response-box">{{ transformation_response }}</pre>
-      {% endif %}
-    </div>
   </div>
-  
-  
-  
-  
 
-
-
-
-
-
-
-
-
-
-  
-
-
-  <div class="calories-section">
-    <form method="POST" action="/">
-        <div class="calories-text">
-          <h2>Track your calorie intake</h2>
-          <p>
-            How many calories does an average sized
-            <span class="food-item">
-              <input type="text" name="food_item" placeholder="your food item goes here" class="italic-placeholder">
-            </span>
-            have?
-          </p><br>
-          <button type="submit" name="calories_button">Find out</button>
-        </div>
-    
-    </form>
-    {% if calories_response is not none %}
-    <div class="result-section">
-      <p class="white-text">
-        <br><strong>{{ calories_response }}</strong>
-      </p>
-    </div>
+  <div class="response">
+    {% if recipe_response is not none %}
+    <pre>{{ recipe_response }}</pre>
     {% endif %}
-  </div> 	
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="bmi-section">
-    <div class="bmi-content">
-        <h1 class="bmi-header">Calculate your BMI Index</h1>
-        Analyse where you lie on the charts and get AI powered predictions on how soon you can achieve your desired results.<br>
-        <br><br><br><form action="/" method="post">
-        <div class="form-row">
-            <div class="form-group col-md-3">
-                <select class="form-control" id="sex" name="sex">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-            </div>
-            <div class="form-group col-md-3">
-                <div class="input-group">
-                    <input type="number" class="form-control" id="weight" name="weight" required>
-                    <div class="input-group-append">
-                        <span class="input-group-text">kg</span>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group col-md-3">
-                <div class="input-group">
-                    <input type="number" class="form-control" id="height" name="height" required>
-                    <div class="input-group-append">
-                        <span class="input-group-text">cm</span>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group col-md-3">
-                <button type="submit" class="btn btn-primary">Calculate</button>
-            </div>
-        </div>
-    </form>    
-    </div>
   </div>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="ai-assistant">
-    <div class="text-container">
-      <h1 class="main-text">AI powered Health Coach</h1>
-      <p class="sub-text">Coming soon</p>
+<!-- Section: Transformation Plans -->
+<div class="custom-section">
+  <form method="post" action="/" >
+    <div class="transform-text">
+      <h1>Transform Now</h1>
+      <p>Customised fitness plans based on your timelines.</p><br>
+      <div class="challenge-buttons">
+        <button type="submit" class="rounded-button" name="45_day_challenge">45 Day Challenge</button>
+        <button type="submit" class="rounded-button" name="90_day_challenge">90 Day Challenge</button>
+        <button type="submit" class="rounded-button" name="180_day_challenge">180 Day Challenge</button>
+      </div>
     </div>
+  </form>
+  <div class="result">
+    {% if transformation_response is not none %}
+    <pre class="response-box">{{ transformation_response }}</pre>
+    {% endif %}
   </div>
+</div>
+
+<!-- Section: Calorie Counter -->
+<div class="calories-section">
+  <form method="POST" action="/">
+    <div class="calories-text">
+      <h2>Track your calorie intake</h2>
+      <p>
+        How many calories does an average sized
+        <span class="food-item">
+          <input type="text" name="food_item" placeholder="your food item goes here" class="italic-placeholder">
+        </span>
+        have?
+      </p><br>
+      <button type="submit" name="calories_button">Find Out Now</button>
+    </div>
+
+  </form>
+  {% if calories_response is not none %}
+  <div class="result-section">
+    <p class="white-text">
+      <br><strong>{{ calories_response }}</strong>
+    </p>
+  </div>
+  {% endif %}
+</div>
+
+<!-- Section: BMI Calculator -->
+<!-- Section: BMI Calculator -->
+<div class="bmi-section">
+  <div class="bmi-content">
+      <h1 class="bmi-header">Calculate your BMI Index</h1>
+      Analyse where you lie on the charts and get AI-powered predictions on how soon you can achieve your desired results.<br>
+      <br><br><br>
+      <form action="/" method="post">
+          <div class="form-row">
+              <div class="form-group col-md-3">
+                  <select class="form-control" id="sex" name="sex">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-3">
+                  <div class="input-group">
+                      <input type="number" class="form-control" id="weight" name="weight" required>
+                      <div class="input-group-append">
+                          <span class="input-group-text">kg</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-group col-md-3">
+                  <div class="input-group">
+                      <input type="number" class="form-control" id="height" name="height" required>
+                      <div class="input-group-append">
+                          <span class="input-group-text">cm</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-group col-md-3">
+                  <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+          </div>
+      </form>
+      {% if bmi is not none %}
+      <div class="bmi-result"><br><br>
+          <p>Your calculated Body Mass Index (BMI) is <strong>{{ bmi }}</strong>, which places you in the <strong>{{ category }}</strong> range of individuals.<br> It's worth noting that BMI is a single indicator and doesn't capture all aspects of health.</p>
+      </div>
+      {% endif %}
+  </div>
+</div>
+
+<!-- Section: AI Assistant -->
+<div class="ai-assistant">
+  <div class="text-container">
+    <h1 class="main-text">AI powered Health Coach</h1>
+    <p class="sub-text">Coming soon</p>
+  </div>
+</div>
 
 
 {% endblock %}

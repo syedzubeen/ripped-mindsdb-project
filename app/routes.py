@@ -64,7 +64,7 @@ async def fetch_calories(username, password):
     data_value_calories = data_value_calories.strip('[\n]').strip()
 
     # Debug and print value
-    print(data_value_calories)
+    #print(data_value_calories)
 
     if resp_calories.status_code == 200:
         return data_value_calories
@@ -96,7 +96,7 @@ async def fetch_plans(username, password, flag):
     transformation_plan = transformation_plan.strip('[\n]').strip()
 
     #Debug and print value
-    print(transformation_plan)
+    #print(transformation_plan)
 
     if resp.status_code == 200:
         return transformation_plan
@@ -121,13 +121,37 @@ def read_env_vars():
 
     return username, password
 
+def calculate_bmi(sex, weight, height):
+    height_m = height / 100  # Convert cm to meters
+    bmi = weight / (height_m ** 2)
+    rounded_bmi = round(bmi, 1)
+    print(bmi)
+    if bmi < 18.5:
+        category = 'Underweight'
+    elif bmi < 24.9:
+        category = 'Normal weight'
+    elif bmi < 29.9:
+        category = 'Overweight'
+    else:
+        category = 'Obese'
+    
+    return rounded_bmi, category
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
+    bmi = None
+    category = None
 
     if request.method == 'POST':
 
+        if 'sex' in request.form and 'weight' in request.form and 'height' in request.form:
+            sex = request.form['sex']
+            weight = float(request.form['weight'])
+            height = float(request.form['height'])
+            
+            bmi, category = calculate_bmi(sex, weight, height)
 
         username, password = read_env_vars()
 
@@ -161,7 +185,7 @@ def index():
 
         loop.close()
 
-        return render_template('index.html', recipe_response=recipe_response, calories_response=calories_response, transformation_response=transformation_response)
+        return render_template('index.html', bmi=bmi, category=category, recipe_response=recipe_response, calories_response=calories_response, transformation_response=transformation_response)
 
     return render_template('index.html', recipe_response=None, calories_response=None, transformation_response=None)
 
