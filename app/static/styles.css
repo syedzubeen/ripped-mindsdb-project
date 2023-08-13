@@ -184,7 +184,7 @@
     justify-content: space-between;
     padding: 40px;
     background-color: #f7f7f7;
-    height: 400px; /* Adjust this value */
+    height: 560px; /* Adjust this value */
   }
   
   .text-area {
@@ -326,4 +326,14 @@
     font-size: 12px;
     margin: 5px;
   }
-    
+
+  .result {
+    width: 60%; /* Set a specific width here */
+    background-color: #ece4e4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    overflow: auto;
+  }
+  

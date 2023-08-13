@@ -69,7 +69,6 @@
 
   
 
-
   <div class="custom-section">
     <form method="post" action="/"> 
       <div class="transform-text">
@@ -82,10 +81,13 @@
         </div>
       </div>
     </form>
-    <div class="text-area">
-      <textarea name="user_text" placeholder="Enter your text here">{{ transformation_response }}</textarea>
+    <div class="result">
+      {% if transformation_response is not none %}
+      <pre class="response-box">{{ transformation_response }}</pre>
+      {% endif %}
     </div>
   </div>
+  
   
   
   
