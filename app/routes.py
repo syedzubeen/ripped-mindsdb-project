@@ -71,6 +71,38 @@ async def fetch_calories(username, password):
     else:
         return 'Error fetching calories'
 
+async def fetch_plans(username, password, flag):
+    session = requests.Session()
+    session.post('https://cloud.mindsdb.com/cloud/login', json={
+        'email': username,
+        'password': password
+    })
+    if flag == 1:
+        plan = "45 days"
+    if flag == 2:
+        plan = "90 days"
+    if flag == 3:
+        plan = "180 days"    
+        
+    custom_query = "SELECT answer FROM mindsdb.recipemaster6 WHERE question = 'Act as an expert health coach who has helped many people loose weight naturally through excercies and proper diet routines. answer in pointwise format, starting your sentence with: Hola Amigo! This is the question: Give me a good transformation plan if my goal is to complete it in " + plan + " days?';"
+    resp = session.post('https://cloud.mindsdb.com/api/sql/query', json={'query': custom_query})
+    
+    json_response = resp.json()
+    
+    # Assuming there's only one element in the inner list
+    transformation_plan = json_response['data'][0][0]  
+    
+    # Remove special characters from start and end
+    transformation_plan = transformation_plan.strip('[\n]').strip()
+
+    #Debug and print value
+    print(transformation_plan)
+
+    if resp.status_code == 200:
+        return transformation_plan
+    else:
+        return 'Error fetching your customised plan'
+
 
 def read_env_vars():
     current_file_directory = os.path.dirname(os.path.abspath(__file__))
@@ -107,6 +139,8 @@ def index():
 
         recipe_response = None
         calories_response = None
+        transformation_response = None
+        flag = 0
 
         if 'recipe_button' in request.form:
             selected_vegan = 'vegan' in request.form
@@ -115,10 +149,19 @@ def index():
             recipe_response = loop.run_until_complete(fetch_recipe(username, password, selected_vegan, selected_gluten_free, selected_lactose_free))
         elif 'calories_button' in request.form:
             calories_response = loop.run_until_complete(fetch_calories(username, password))
+        elif '45_day_challenge' in request.form:
+            flag = 1
+            transformation_response = loop.run_until_complete(fetch_plans(username, password, flag))
+        elif '90_day_challenge' in request.form:
+            flag = 2
+            transformation_response = loop.run_until_complete(fetch_plans(username, password, flag))
+        elif '180_day_challenge' in request.form:
+            flag = 3
+            transformation_response = loop.run_until_complete(fetch_plans(username, password, flag))
 
         loop.close()
 
-        return render_template('index.html', recipe_response=recipe_response, calories_response=calories_response)
+        return render_template('index.html', recipe_response=recipe_response, calories_response=calories_response, transformation_response=transformation_response)
 
-    return render_template('index.html', recipe_response=None, calories_response=None)
+    return render_template('index.html', recipe_response=None, calories_response=None, transformation_response=None)
 

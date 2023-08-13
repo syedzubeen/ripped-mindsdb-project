@@ -68,19 +68,25 @@
   
 
   
+
+
   <div class="custom-section">
+    <form method="post" action="/"> 
+      <div class="transform-text">
+        <h1>Transform Now</h1>
+        <p>Customised fitness plans based on your timelines.</p>
+        <div class="challenge-buttons">
+          <button type="submit" class="rounded-button" name="45_day_challenge">45 Day Challenge</button>
+          <button type="submit" class="rounded-button" name="90_day_challenge">90 Day Challenge</button>
+          <button type="submit" class="rounded-button" name="180_day_challenge">180 Day Challenge</button>
+        </div>
+      </div>
+    </form>
     <div class="text-area">
-      <textarea placeholder="Enter your text here"></textarea>
-    </div>
-    <div class="transform-text">
-      <h1>Transform Now</h1>
-      <p>Customised fitness plans based on your timelines.</p>
+      <textarea name="user_text" placeholder="Enter your text here">{{ transformation_response }}</textarea>
     </div>
   </div>
   
-
-
-  
   
   
 
@@ -92,12 +98,7 @@
 
 
 
-  <div class="ai-assistant">
-    <div class="text-container">
-      <h1 class="main-text">AI powered Ripped Health Coach</h1>
-      <p class="sub-text">Coming soon</p>
-    </div>
-  </div>
+
   
 
 
@@ -194,6 +195,14 @@
 
 
 
+
+
+  <div class="ai-assistant">
+    <div class="text-container">
+      <h1 class="main-text">AI powered Health Coach</h1>
+      <p class="sub-text">Coming soon</p>
+    </div>
+  </div>
 
 
 {% endblock %}
