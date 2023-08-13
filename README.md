@@ -43,10 +43,10 @@ Follow these steps to get Ripped up and running on your local machine:
      Open your web browser and navigate to http://localhost:5000 to access Ripped.
 
 ## Issue
-This repository is maintained actively, so if you face any issue please <a href="https://github.com/ankitwasankar/mftool-java/issues/new">raise an issue</a>.
+This repository is maintained actively, so if you face any issue please <a href="https://github.com/syedzubeen/ripped-mindsdb-project/issues">raise an issue</a>.
 
 ## Liked the work!
 Give the repository a star :)
 
 ## License
-Ripped is licensed under the MIT License.
+Ripped is licensed under the  <a href="https://github.com/syedzubeen/ripped-mindsdb-project/blob/main/LICENSE">MIT License.</a>
