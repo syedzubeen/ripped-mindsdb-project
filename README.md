@@ -15,11 +15,9 @@ Ripped is a Flask-based web application that harnesses the power of AI to promot
 - **Personalized Workouts:** Ripped tailors workout plans based on user preferences, fitness levels, and goals.
 - **Monitoring Calories:** The application allows you to calculate the calories for any eatable/food item.
 
-![calorie](https://github.com/syedzubeen/ripped-mindsdb-project/assets/14253061/94925be9-bb6e-4b98-ae57-070ae39580ed)
 
 - **Customised Healthy Recipes:** Ripped provides customized healthy recipes, curated just for you, taking your dietary restrictions into consideration as well.
 
-  ![recipe](https://github.com/syedzubeen/ripped-mindsdb-project/assets/14253061/a507fe36-b7bc-4808-8ee1-0587ce9317c5)
 
 - **BMI Calculator:** Ripped's BMI calculator is simple yet effective in helping you know where you lie on the health index.
 - **AI Health Assistant:** Users can interact with our AI Assistant and discuss their health issues, progress, or any other queries that they may have. (Coming Soon)
