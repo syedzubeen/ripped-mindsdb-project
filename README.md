@@ -42,7 +42,8 @@ Follow these steps to get Ripped up and running on your local machine:
 2. **Create a Virtual Environment:**
      ```sh
      python -m venv venv
-     Linux: source venv/bin/activate  # On Windows: venv\Scripts\activate
+     Linux: source venv/bin/activate
+     Windows: venv\Scripts\activate
 
 4. **Install Dependencies:**
       ```sh
