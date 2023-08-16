@@ -84,7 +84,7 @@ async def fetch_plans(username, password, flag):
     if flag == 3:
         plan = "180 days"    
         
-    custom_query = "SELECT answer FROM mindsdb.recipemaster6 WHERE question = 'Act as an expert health coach who has helped many people loose weight naturally through excercies and proper diet routines. answer in pointwise format, starting your sentence with: Hola Amigo! This is the question: Give me a good transformation plan if my goal is to complete it in " + plan + " days?';"
+    custom_query = "SELECT answer FROM mindsdb.recipemaster6 WHERE question = 'Act as an expert health coach who has helped many people lose weight naturally through exercises and proper diet routines. answer in pointwise format, starting your sentence with: Hola Amigo! This is the question: Give me a good transformation plan if my goal is to complete it in " + plan + " days?';"
     resp = session.post('https://cloud.mindsdb.com/api/sql/query', json={'query': custom_query})
     
     json_response = resp.json()

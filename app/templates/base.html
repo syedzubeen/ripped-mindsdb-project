@@ -1,54 +1,69 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Borel&display=swap">
     <link rel="icon" href="{{ url_for('static', filename='app_favicon.png') }}">
     <title>Sweat.it</title>
     <style>
-          .footer {
-        background-color: #00B06D;
-        padding: 10px;
-        text-align: left;
-    }
-    
-    .footer-content {
-        margin: 0;
-        padding-left: 20px;
-        font-size: small;
-        color: rgb(7, 0, 14); /* Set the text color to grey */
-    }
-    .footer-content a {
-    color: rgba(248, 242, 242, 0.614); /* Set the hyperlink color to grey */
-    text-decoration: none; /* Remove underline from the hyperlink */
-}
+        .footer {
+            background-color: #00B06D;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .footer-content {
+            margin: 0;
+            padding-left: 20px;
+            font-size: small;
+            color: rgb(7, 0, 14);
+            /* Set the text color to grey */
+        }
+
+        .footer-content a {
+            color: rgba(248, 242, 242, 0.614);
+            /* Set the hyperlink color to grey */
+            text-decoration: none;
+            /* Remove underline from the hyperlink */
+        }
     </style>
-  
+
 </head>
+
 <body>
 
     <!-- Image and text -->
-<nav class="navbar navbar-light " style="background-color: #ffffffe2;">
-    <a class="navbar-brand" href="#" style="padding-left: 40px;"> 
-        <img src="{{ url_for('static', filename='logo.png') }}" width="190  " height="40" class="d-inline-block align-top" alt="">
-    </a>
-  </nav>
-    
+    <nav class="navbar navbar-light " style="background-color: #ffffffe2;">
+        <a class="navbar-brand" href="#" style="padding-left: 40px;">
+            <img src="{{ url_for('static', filename='logo.png') }}" width="190  " height="40"
+                class="d-inline-block align-top" alt="">
+        </a>
+    </nav>
+
 
 
     {% block content %}
     {% endblock %}
-    
+
 
 
     <footer class="footer">
-        <p class="footer-content">© 2023 Ripped. All rights reserved. | Powered by <a href="https://mindsdb.com/" target="_blank">MindsDB</a></p>
+        <p class="footer-content">© 2023 Ripped. All rights reserved. | Powered by <a href="https://mindsdb.com/"
+                target="_blank">MindsDB</a></p>
     </footer>
 
 
- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>   
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
