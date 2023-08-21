@@ -45,20 +45,20 @@ Follow these steps to get Ripped up and running on your local machine:
      Linux: source venv/bin/activate
      Windows: venv\Scripts\activate
 
-4. **Install Dependencies:**
+3. **Install Dependencies:**
       ```sh
       pip install requests, asyncio
 
-5. Create an env_vars.txt file in the app directory with the following content:
+4. **Create an env_vars.txt file in the app directory with the following content:**
    ```sh
    USERNAME=<MindsDB Cloud Username>
    PASSWORD=<MindsDB Cloud Password>
    
-6. **Run the Application:**
+5. **Run the Application:**
    ```sh
    flask run
    
-7. **Access the Application:**
+6. **Access the Application:**
      ```sh
      Open your web browser and navigate to http://localhost:5000 to access Ripped.
 
