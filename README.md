@@ -48,7 +48,12 @@ Follow these steps to get Ripped up and running on your local machine:
 4. **Install Dependencies:**
       ```sh
       pip install requests, asyncio
-      
+
+5. Create an env_vars.txt file in the app directory with the following content:
+   ```sh
+   USERNAME=<MindsDB Cloud Username>
+   PASSWORD=<MindsDB Cloud Password>
+   
 6. **Run the Application:**
    ```sh
    flask run
