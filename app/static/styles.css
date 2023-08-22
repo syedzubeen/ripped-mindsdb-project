@@ -271,7 +271,7 @@
     padding: 5px 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 175px;
+    width: 200px;
     height: 30px;
   }
   
@@ -337,26 +337,24 @@
     height: 400px;
     overflow: auto;
   }
-  .chat-container {
+.chat-container {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
 }
 
 .chat {
-    width: 100%;
-    height: 400px; /* Adjust the height as per your preference */
+    width: 180%;
+    height: 400px;
     border: 1px solid #ccc;
-    padding: 5px;
+    padding: 7px;
     font-size: 16px;
     font-family: Arial, sans-serif;
-    overflow: auto; /* This will add a scroll bar when the content overflows */
-    max-height: 200px; /* Adjust the maximum height as needed */
     overflow: auto;
-    border-radius: 10px; /* Adjust the value to control the roundness of the corners */
-
+    max-height: 600px;
+    border-radius: 10px;
+    background-color: #efe6e6;
 }
-
 
 .chat-message {
     width: 100%;
@@ -370,30 +368,11 @@
     text-align: left;
 }
 
-
-
-input[type="text"] {
-    flex: 1;
-    padding: 1px;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-
 input[type="text"] {
     flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 25px;
+    border-radius: 25px; /* Adjust the border-radius here */
 }
 
 button {
@@ -404,24 +383,26 @@ button {
     border-radius: 2px;
     cursor: pointer;
 }
+
 .italic-placeholder {
     font-style: italic;
-    border-radius: 8px; /* Adjust the value to control the roundness of the corners */
-    padding: 5px; /* Add some padding for spacing */
-    border: 1px solid #ccc; /* Add a border for visual separation (optional) */
-    font-size: 16px; /* Set the font size as needed */
+    border-radius: 18px; /* Adjust the border-radius here */
+    padding: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
     text-align: left;
 }
+
 .styled-button {
-    background-color: #4CAF50; /* Set the background color */
-    color: white; /* Set the text color */
-    padding: 8px 30px; /* Set padding */
-    border: none; /* Remove border */
-    border-radius: 25px; /* Add rounded corners */
-    cursor: pointer; /* Add a pointer cursor on hover */
-    font-size: 16px; /* Set the font size */
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .styled-button:hover {
-    background-color: #45a049; /* Change the background color on hover */
+    background-color: #45a049;
 }

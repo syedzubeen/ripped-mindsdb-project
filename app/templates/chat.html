@@ -4,18 +4,28 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <style>
+        body {
+          
+            background-image: url('/static/blurredgym.png'); /* Background image */
+            /* OR */
+            
+        }
+    </style>
   </head>
   
 
 
 
-<div class="chat-container">
+<div class="chat-container"><br>
     <textarea class="chat" rows="220" cols="170" readonly>
-    Hi!, I am your personal AI Health Coach Dave. How may I help you today?
+    Hi there!
+    I'm your personal AI Health Coach Dave. 
+    How may I help you today?
     </textarea>
-    <div class="user-input">
+    <div class="user-input"><br>
         <form action="/send" method="post" onsubmit="submitForm(); return false;">
-            <input type="text" name="user-message" id="user-message" placeholder="Type your message here" class="italic-placeholder"><br><br>
+            <input type="text" name="user-message" id="user-message" placeholder="Type your message here" class="italic-placeholder" rows="2"><br><br>
             <button type="submit" id="send-button" class="styled-button">Send</button>
         </form>
     </div>
