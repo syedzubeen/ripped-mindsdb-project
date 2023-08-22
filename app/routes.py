@@ -137,6 +137,82 @@ def calculate_bmi(sex, weight, height):
     
     return rounded_bmi, category
 
+@app.route('/aiassistant')
+def aiassistant():
+    # Your code for this route
+    return render_template('chat.html')
+
+@app.route('/send', methods=['POST'])
+async def send_message():
+    print(f"Request Form: {request.form}")  # Debugging line
+    print(f"Request Form: {request.form}")
+    user_message = request.json.get('user_message')
+    print(f"Received user message: {user_message}")
+
+
+    if user_message:
+        print(f"User input received: {user_message}")  # Debugging line
+
+        try:
+            # Await the query_mindsdb function asynchronously
+            bot_response = await query_mindsdb(user_message)
+            
+            # Return the bot's response as JSON
+            return jsonify({"bot_response": bot_response})
+
+        except Exception as e:
+            # Handle any exceptions that might occur during the query
+            return jsonify({"error": str(e)})
+    
+    else:
+        # Handle the case when user_message is empty (no input provided)
+        return jsonify({"error": "No user input provided"})
+
+def setup_mindsdb_session():
+    try:
+        session = requests.Session()
+        response = session.post('https://cloud.mindsdb.com/cloud/login', json={
+            'email': 'zubeenqadry@gmail.com',
+            'password': 'Toyota@123'
+        })
+
+        # Check if the login was successful (you might need to adjust the status code)
+        if response.status_code == 200:
+            return session
+        else:
+            # Log an error message or raise an exception if login fails
+            print(f"Login failed with status code: {response.status_code}")
+            return "Login failed with status code"
+    except requests.exceptions.RequestException as e:
+        # Handle connection or request errors here
+        print(f"An error occurred during login: {e}")
+        return "An error occurred during login"
+
+    
+async def query_mindsdb(user_message):
+    session = setup_mindsdb_session()
+    if session is not None:
+        test = user_message
+        print(test)
+        custom_query = "SELECT answer FROM mindsdb.recipemaster6 WHERE question = '" + user_message +"?';"
+        resp_calories = session.post('https://cloud.mindsdb.com/api/sql/query', json={'query': custom_query})
+        print(resp_calories)
+        if resp_calories.status_code == 200:
+            chat_bot_response = resp_calories.json()
+            print(chat_bot_response)
+            if 'data' in chat_bot_response and chat_bot_response['data']:
+                data_value_calories = chat_bot_response['data'][0][0]
+                # Remove special characters from start and end
+                data_value_calories = data_value_calories.strip('[\n]').strip()
+                return data_value_calories
+            else:
+                return 'No data found'  # Handle the case when there's no valid response
+        else:
+            # Log the error for debugging
+            print(f"API Error: Status Code {resp_calories.status_code}")
+            return 'Error fetching data'  # Handle the case when there's an API error
+    else:
+        return 'Session setup failed'  # Handle the case when session setup fails
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
