@@ -170,10 +170,11 @@ async def send_message():
 
 def setup_mindsdb_session():
     try:
+        username, password = read_env_vars()
         session = requests.Session()
         response = session.post('https://cloud.mindsdb.com/cloud/login', json={
-            'email': 'zubeenqadry@gmail.com',
-            'password': 'Toyota@123'
+           'email': username,
+           'password': passwords
         })
 
         # Check if the login was successful (you might need to adjust the status code)
