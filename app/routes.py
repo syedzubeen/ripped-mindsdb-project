@@ -174,10 +174,10 @@ def setup_mindsdb_session():
         session = requests.Session()
         response = session.post('https://cloud.mindsdb.com/cloud/login', json={
            'email': username,
-           'password': passwords
+           'password': password
         })
 
-        # Check if the login was successful (you might need to adjust the status code)
+        # Check if the login was successful 
         if response.status_code == 200:
             return session
         else:
