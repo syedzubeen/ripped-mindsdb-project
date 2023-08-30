@@ -28,7 +28,10 @@ Ripped is a Flask-based web application that harnesses the power of AI to promot
 
 ![bmiindex_gif](https://github.com/syedzubeen/ripped-mindsdb-project/assets/14253061/63877813-1916-4af7-8d74-c54708d49c77)
 
-- **AI Health Assistant:** Users can interact with our AI Assistant and discuss their health issues, progress, or any other queries that they may have. (Coming Soon)
+- **AI Health Assistant:** Users can interact with our AI Assistant and discuss their health issues, progress, or any other queries that they may have.
+
+![aiassistant](https://github.com/syedzubeen/ripped-mindsdb-project/assets/14253061/43e027eb-aeca-4028-b952-3ebdcacf4b03)
+
 
 ## Getting Started
 
